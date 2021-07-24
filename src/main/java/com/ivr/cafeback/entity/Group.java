@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import java.util.List;
 
 @Entity
-@Table(name = "groups")
+@Table(name = "grp")
 public class Group extends BaseEntity {
     private String name;
     private String image;

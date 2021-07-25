@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar build/libs/cafeBack.jar
+web: java $JAVA_OPTS -D server.port=$PORT -jar build/libs/cafeBack.jar

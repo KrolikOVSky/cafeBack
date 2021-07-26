@@ -75,6 +75,9 @@ public class Utilities {
                 return "ya";
             case " ":
                 return "-";
+            case "ъ":
+            case "ь":
+                return "";
             default:
                 return letter;
         }

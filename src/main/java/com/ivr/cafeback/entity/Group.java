@@ -2,10 +2,8 @@ package com.ivr.cafeback.entity;
 
 import com.ivr.cafeback.services.Utilities;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -26,6 +24,7 @@ public class Group extends BaseEntity {
         this.name = name;
         this.image = image;
         this.deleted = false;
+        super.setCreatedDate(LocalDate.now());
         this.linkName = Utilities.convert(name);
     }
 

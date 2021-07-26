@@ -5,15 +5,13 @@ public class CreateProductModel {
     private String image;
     private String shortDesc;
     private String description;
-    private Boolean deleted;
     private Integer price;
 
-    public CreateProductModel(String name, String image, String shortDesc, String description, Boolean deleted, Integer price) {
+    public CreateProductModel(String name, String image, String shortDesc, String description, Integer price) {
         this.name = name;
         this.image = image;
         this.shortDesc = shortDesc;
         this.description = description;
-        this.deleted = deleted;
         this.price = price;
     }
 
@@ -47,14 +45,6 @@ public class CreateProductModel {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Boolean getDeleted() {
-        return deleted;
-    }
-
-    public void setDeleted(Boolean deleted) {
-        this.deleted = deleted;
     }
 
     public Integer getPrice() {

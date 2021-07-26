@@ -12,4 +12,13 @@ public interface GroupRepo extends JpaRepository<Group, UUID> {
     @Query("select gr from Group gr where gr.deletedDate is null")
     List<GroupModel> findAllModels();
 
+    @Query("select gr from Group gr where gr.deletedDate is not null")
+    List<GroupModel> findAllDeletedModels();
+
+    boolean existsGroupByNameAndDeleted(String Name, boolean deleted);
+    boolean existsGroupByLinkNameAndDeleted(String linkName, boolean deleted);
+
+    Group findGroupByLinkNameAndDeleted(String linkName, boolean deleted);
+    Group getGroupByLinkName(String linkName);
+
 }

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MainController {
     @GetMapping("/")
-    public String simpleShow(){
+    public String simpleShow() {
         return "Hello this page updated";
     }
 }

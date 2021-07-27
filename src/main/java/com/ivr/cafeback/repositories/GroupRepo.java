@@ -9,16 +9,18 @@ import java.util.List;
 import java.util.UUID;
 
 public interface GroupRepo extends JpaRepository<Group, UUID> {
-    @Query("select gr from Group gr where gr.deletedDate is null")
+    @Query("select gr from Group gr where gr.deleted = false")
     List<GroupModel> findAllModels();
 
-    @Query("select gr from Group gr where gr.deletedDate is not null")
+    @Query("select gr from Group gr where gr.deleted = true")
     List<GroupModel> findAllDeletedModels();
 
     boolean existsGroupByNameAndDeleted(String Name, boolean deleted);
+
     boolean existsGroupByLinkNameAndDeleted(String linkName, boolean deleted);
 
     Group findGroupByLinkNameAndDeleted(String linkName, boolean deleted);
+
     Group getGroupByLinkName(String linkName);
 
 }

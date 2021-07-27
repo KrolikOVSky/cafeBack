@@ -4,7 +4,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @MappedSuperclass
@@ -12,31 +12,31 @@ public abstract class BaseEntity {
     @Id
     @Type(type = "pg-uuid")
     private UUID id = UUID.randomUUID();
-    private LocalDate createdDate;
-    private LocalDate updatedDate;
-    private LocalDate deletedDate;
+    private LocalDateTime createdDate;
+    private LocalDateTime updatedDate;
+    private LocalDateTime deletedDate;
 
-    public LocalDate getCreatedDate() {
+    public LocalDateTime getCreatedDate() {
         return createdDate;
     }
 
-    public void setCreatedDate(LocalDate createdDate) {
+    public void setCreatedDate(LocalDateTime createdDate) {
         this.createdDate = createdDate;
     }
 
-    public LocalDate getUpdatedDate() {
+    public LocalDateTime getUpdatedDate() {
         return updatedDate;
     }
 
-    public void setUpdatedDate(LocalDate updatedDate) {
+    public void setUpdatedDate(LocalDateTime updatedDate) {
         this.updatedDate = updatedDate;
     }
 
-    public LocalDate getDeletedDate() {
+    public LocalDateTime getDeletedDate() {
         return deletedDate;
     }
 
-    public void setDeletedDate(LocalDate deletedDate) {
+    public void setDeletedDate(LocalDateTime deletedDate) {
         this.deletedDate = deletedDate;
     }
 }

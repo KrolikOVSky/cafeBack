@@ -28,7 +28,7 @@ public class GroupService {
     public void updateGroup(UpdateGroupModel updatedModel) {
         if (groupRepo.existsGroupByLinkNameAndDeleted(updatedModel.getLinkName(), false)) {
             Group group = groupRepo.findGroupByLinkNameAndDeleted(updatedModel.getLinkName(), false);
-            if(updatedModel.getDeleted()){
+            if(updatedModel.isDeleted()){
                 group.setDeleted(true);
                 group.setDeletedDate(LocalDate.now());
             } else 

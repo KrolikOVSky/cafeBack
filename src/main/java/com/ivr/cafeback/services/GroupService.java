@@ -28,14 +28,17 @@ public class GroupService {
     public void updateGroup(UpdateGroupModel updatedModel) {
         if (groupRepo.existsGroupByLinkNameAndDeleted(updatedModel.getLinkName(), false)) {
             Group group = groupRepo.findGroupByLinkNameAndDeleted(updatedModel.getLinkName(), false);
+            if(updatedModel.getDeleted()){
+                group.setDeleted(true);
+                group.setDeletedDate(LocalDate.now());
+            } else 
             if (group.getName().equals(updatedModel.getName())) {
                 group.setImage(updatedModel.getImage());
-                group.setDeleted(updatedModel.isDeleted());
                 group.setUpdatedDate(LocalDate.now());
-            } else if (!groupRepo.existsGroupByNameAndDeleted(updatedModel.getName(), false)) {
+            } else 
+            if (!groupRepo.existsGroupByNameAndDeleted(updatedModel.getName(), false)) {
                 group.setName(updatedModel.getName());
                 group.setImage(updatedModel.getImage());
-                group.setDeleted(updatedModel.isDeleted());
                 group.setUpdatedDate(LocalDate.now());
             } else throw new RuntimeException(String.format("Name \"%s\" is already exists", updatedModel.getName()));
             groupRepo.save(group);

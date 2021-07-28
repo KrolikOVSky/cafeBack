@@ -1,7 +1,7 @@
 package com.ivr.cafeback.entity.model.out;
 
 import com.ivr.cafeback.entity.Group;
-import com.ivr.cafeback.entity.model.out.ProductModel;
+import com.ivr.cafeback.entity.Product;
 
 import java.util.List;
 
@@ -19,14 +19,16 @@ public class GroupModel {
         this.linkName = group.getLinkName();
     }
 
-    public List<ProductModel> getProducts(){
+    public List<ProductModel> getProducts() {
         return products;
     }
-    
-    public void setProducts(List<ProductModel> products){
-        this.products = products;
+
+    public void setProducts(List<Product> products) {
+        for (Product el : products) {
+            this.products.add(new ProductModel(el));
+        }
     }
-    
+
     public String getName() {
         return name;
     }

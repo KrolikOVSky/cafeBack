@@ -1,7 +1,7 @@
 package com.ivr.cafeback.entity.model.out;
 
 import com.ivr.cafeback.entity.Group;
-import com.ivr.cafeback.entity.out.ProductModel;
+import com.ivr.cafeback.entity.model.out.ProductModel;
 
 import java.util.List;
 
@@ -17,7 +17,6 @@ public class GroupModel {
         this.image = group.getImage();
         this.deleted = group.isDeleted();
         this.linkName = group.getLinkName();
-        this.products = group.getProducts();
     }
 
     public List<ProductModel> getProducts(){

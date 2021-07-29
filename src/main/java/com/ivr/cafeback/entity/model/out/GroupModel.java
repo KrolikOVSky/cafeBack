@@ -3,7 +3,7 @@ package com.ivr.cafeback.entity.model.out;
 import com.ivr.cafeback.entity.Group;
 import com.ivr.cafeback.entity.Product;
 
-import java.util.List;
+import java.util.*;
 
 public class GroupModel {
     private String name;
@@ -17,6 +17,7 @@ public class GroupModel {
         this.image = group.getImage();
         this.deleted = group.isDeleted();
         this.linkName = group.getLinkName();
+        this.products = new ArrayList<>();
         setProducts(group.getProducts());
     }
 
@@ -26,8 +27,8 @@ public class GroupModel {
 
     public void setProducts(List<Product> products) {
         for (Product el : products) {
-            System.out.println(el.getName());
-            System.out.println(el.getDescription());
+            System.out.println("prodName = " + el.getName());
+            System.out.println("prodDesc = " + el.getDescription());
             this.products.add(new ProductModel(el));
         }
         System.out.println(this.products);

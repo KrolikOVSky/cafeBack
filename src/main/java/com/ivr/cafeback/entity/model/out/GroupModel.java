@@ -17,6 +17,7 @@ public class GroupModel {
         this.image = group.getImage();
         this.deleted = group.isDeleted();
         this.linkName = group.getLinkName();
+        setProducts(group.getProducts());
     }
 
     public List<ProductModel> getProducts() {

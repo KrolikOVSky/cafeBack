@@ -25,8 +25,11 @@ public class GroupModel {
 
     public void setProducts(List<Product> products) {
         for (Product el : products) {
+            System.out.println(el.getName());
+            System.out.println(el.getDescription());
             this.products.add(new ProductModel(el));
         }
+        System.out.println(this.products);
     }
 
     public String getName() {

@@ -1,18 +1,34 @@
 package com.ivr.cafeback.entity.model.out;
 
 import com.ivr.cafeback.entity.Group;
+import com.ivr.cafeback.entity.Product;
+
+import java.util.*;
 
 public class GroupModel {
     private String name;
     private String image;
     private Boolean deleted;
     private String linkName;
+    private List<ProductModel> products;
 
     public GroupModel(Group group) {
         this.name = group.getName();
         this.image = group.getImage();
         this.deleted = group.isDeleted();
         this.linkName = group.getLinkName();
+        this.products = new ArrayList<>();
+        setProducts(group.getProducts());
+    }
+
+    public List<ProductModel> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        for (Product el : products) {
+            this.products.add(new ProductModel(el));
+        }
     }
 
     public String getName() {

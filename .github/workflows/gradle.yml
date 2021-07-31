@@ -6,7 +6,6 @@ name: Java CI with Gradle
 on:
   push:
     branches: [ master ]
-    branches: [ product-functional-create ]
   pull_request:
     branches: [ master ]
 

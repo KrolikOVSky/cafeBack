@@ -11,6 +11,8 @@ public class ProductModel {
     private Integer price;
     private String linkName;
 
+    private String groupName;
+
     public ProductModel(Product product) {
         this.name = product.getName();
         this.image = product.getImage();
@@ -19,6 +21,15 @@ public class ProductModel {
         this.deleted = product.getDeleted();
         this.price = product.getPrice();
         this.linkName = product.getLinkName();
+        this.groupName = product.getGroup().getName();
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
     }
 
     public String getName() {

@@ -1,28 +1,24 @@
 package com.ivr.cafeback.entity.model.in;
 
-public class CreateProductModel {
+public class UpdateProductModel {
     private String name;
     private String image;
     private String shortDesc;
     private String description;
-    private Integer price;
+    private String linkName;
     private String groupName;
+    private boolean deleted;
+    private Integer price;
 
-    public CreateProductModel(String name, String image, String shortDesc, String description, Integer price, String groupName) {
+    public UpdateProductModel(String name, String image, String shortDesc, String description, String linkName, String groupName, boolean deleted, Integer price) {
         this.name = name;
         this.image = image;
         this.shortDesc = shortDesc;
         this.description = description;
+        this.linkName = linkName;
+        this.groupName = groupName;
+        this.deleted = deleted;
         this.price = price;
-        this.groupName = groupName;
-    }
-
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public void setGroupName(String groupName) {
-        this.groupName = groupName;
     }
 
     public String getName() {
@@ -57,6 +53,30 @@ public class CreateProductModel {
         this.description = description;
     }
 
+    public String getLinkName() {
+        return linkName;
+    }
+
+    public void setLinkName(String linkName) {
+        this.linkName = linkName;
+    }
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
+    }
+
     public Integer getPrice() {
         return price;
     }
@@ -65,3 +85,4 @@ public class CreateProductModel {
         this.price = price;
     }
 }
+

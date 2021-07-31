@@ -1,11 +1,11 @@
 package com.ivr.cafeback.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ivr.cafeback.services.Utilities;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "products")
@@ -19,13 +19,12 @@ public class Product extends BaseEntity {
     private Integer price;
 
     @ManyToOne
-    @JsonIgnore
     private Group group;
 
     protected Product() {
     }
 
-    public Product(String name, String image, String shortDesc, String description, Integer price) {
+    public Product(String name, String image, String shortDesc, String description, Integer price, Group group) {
         this.name = name;
         this.image = image;
         this.shortDesc = shortDesc;
@@ -33,6 +32,8 @@ public class Product extends BaseEntity {
         this.linkName = Utilities.convert(name);
         this.deleted = false;
         this.price = price;
+        this.group = group;
+        super.setCreatedDate(LocalDateTime.now());
     }
 
     public String getName() {

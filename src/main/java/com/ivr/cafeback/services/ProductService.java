@@ -37,7 +37,7 @@ public class ProductService {
                     createdModel.getShortDesc(),
                     createdModel.getDescription(),
                     createdModel.getPrice(),
-                    groupRepo.getGroupByLinkName(createdModel.getGroupName())
+                    groupRepo.getGroupByLinkName(Utilities.convert(createdModel.getGroupName()))
             );
             productRepo.save(product);
         } else throw new RuntimeException(String.format("Product \"%s\" already exists", createdModel.getName()));

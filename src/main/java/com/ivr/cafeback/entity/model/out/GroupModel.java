@@ -27,7 +27,9 @@ public class GroupModel {
 
     public void setProducts(List<Product> products) {
         for (Product el : products) {
-            this.products.add(new ProductModel(el));
+            if(!el.getDeleted()){
+                this.products.add(new ProductModel(el));
+            }
         }
     }
 

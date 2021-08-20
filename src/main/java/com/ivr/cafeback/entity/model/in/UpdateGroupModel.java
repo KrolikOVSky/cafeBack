@@ -12,6 +12,8 @@ public class UpdateGroupModel {
         this.linkName = linkName;
         this.deleted = deleted;
     }
+    
+    public UpdateGroupModel() {}
 
     public String getName() {
         return name;

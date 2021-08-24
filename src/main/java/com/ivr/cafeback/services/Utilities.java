@@ -1,6 +1,15 @@
 package com.ivr.cafeback.services;
 
+import org.springframework.beans.factory.annotation.Value;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.util.Date;
+
 public class Utilities {
+    @Value("${upload.path}")
+    private String uploadPath;
+
     public static String convert(String word) {
         StringBuilder result = new StringBuilder();
         word = word.toLowerCase();
@@ -141,6 +150,26 @@ public class Utilities {
                 return "-";
             default:
                 return "";
+        }
+    }
+
+    public boolean fileSave(String content) {
+        try {
+            File filePath = new File(this.uploadPath);
+            if (!filePath.exists()) {
+                System.out.println(filePath.mkdir());
+            }
+
+            File file = new File(String.format("%s/%s", filePath.getPath(), new Date()));
+
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.append(content);
+            fileWriter.flush();
+            fileWriter.close();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
         }
     }
 }

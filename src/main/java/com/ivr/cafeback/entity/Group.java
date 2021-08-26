@@ -1,6 +1,7 @@
 package com.ivr.cafeback.entity;
 
 import com.ivr.cafeback.services.Utilities;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,10 +10,12 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@SuppressWarnings("JpaDataSourceORMInspection")
 @Entity
 @Table(name = "groups")
 public class Group extends BaseEntity {
     private String name;
+    @Type(type = "text")
     private String image;
     private String linkName;
     private Boolean deleted;

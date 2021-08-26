@@ -10,6 +10,11 @@ public class CreateGroupModel {
         this.image = image;
     }
 
+    public CreateGroupModel() {
+        this.name = "";
+        this.image = "";
+    }
+    
     public String getName() {
         return name;
     }

@@ -16,6 +16,9 @@ public class CreateProductModel {
         this.price = price;
         this.groupName = groupName;
     }
+    
+     public CreateProductModel() {
+    }
 
     public String getGroupName() {
         return groupName;

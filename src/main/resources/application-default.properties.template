@@ -1,0 +1,8 @@
+spring.datasource.url=jdbc:postgresql://xx.xx.xx.xx/cafe
+spring.datasource.username=postgres
+spring.datasource.password=root
+spring.jpa.hibernate.ddl-auto=update
+
+upload.path=/app/images/png
+
+server.port=8081

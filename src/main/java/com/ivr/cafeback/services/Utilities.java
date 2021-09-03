@@ -1,10 +1,14 @@
 package com.ivr.cafeback.services;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Base64;
 import java.util.Date;
+import java.util.UUID;
 
 public class Utilities {
     @Value("${upload.path}")
@@ -172,4 +176,42 @@ public class Utilities {
             return false;
         }
     }
+
+    public static void base64Decode(String content) {
+
+    }
+
+    public static String getExtension(String code) {
+        return code.substring(code.indexOf("/") + 1, code.lastIndexOf(";"));
+    }
+
+    public static String getBase64(String code) {
+        return code.substring(code.indexOf(",") + 1);
+    }
+
+    private static void base64ToImage(String content) throws IOException {
+//        byte[] decodedBytes = Base64.getDecoder().decode(content);
+//        FileUtils.writeByteArrayToFile(new File("/home/alex/Desktop/Test/img.png"), decodedBytes);
+    }
+
+    public static String saveImages(String code, String path) {
+        String base64 = getBase64(code);
+        String extension = getExtension(code);
+        String fileName = String.format("%s.%s", UUID.randomUUID(), extension);
+
+        try {
+            File file = new File(String.format("%s/%s", path, fileName));
+            if(!new File(path).exists()){
+                System.out.println(new File(path).mkdir());
+            }
+            byte[] decodedBytes = Base64.getDecoder().decode(base64);
+            FileUtils.writeByteArrayToFile(file, decodedBytes);
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        return fileName;
+    }
+
 }

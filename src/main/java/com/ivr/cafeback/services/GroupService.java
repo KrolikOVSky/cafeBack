@@ -5,6 +5,7 @@ import com.ivr.cafeback.entity.model.in.CreateGroupModel;
 import com.ivr.cafeback.entity.model.in.UpdateGroupModel;
 import com.ivr.cafeback.entity.model.out.GroupModel;
 import com.ivr.cafeback.repositories.GroupRepo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -14,13 +15,16 @@ import java.util.List;
 public class GroupService {
     private final GroupRepo groupRepo;
 
+    @Value("${upload.path}")
+    private String uploadPath;
+
     public GroupService(GroupRepo groupRepo) {
         this.groupRepo = groupRepo;
     }
 
     public void createGroup(CreateGroupModel createdModel) {
         if (!groupRepo.existsGroupByNameAndDeleted(createdModel.getName(), false)) {
-            Group group = new Group(createdModel.getName(), createdModel.getImage());
+            Group group = new Group(createdModel.getName(), Utilities.saveImages(createdModel.getImage(), uploadPath));
             groupRepo.save(group);
         } else throw new RuntimeException(String.format("\"%s\" is already exists", createdModel.getName()));
     }

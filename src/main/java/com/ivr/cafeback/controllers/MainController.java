@@ -14,30 +14,6 @@ public class MainController {
 
     @GetMapping("/")
     public String simpleShow() {
-        Utilities util = new Utilities();
-        boolean file = util.fileSave("Hello world " + new Date());
-        return "Hello this page updated\n" + file;
+        return "Hello this page updated\n";
     }
-
-
-    private void test(String content) {
-        /*try {
-            File filePath = new File(uploadPath);
-            if (!filePath.exists()) {
-                System.out.println(filePath.mkdir());
-            }
-
-            File file = new File(filePath.getPath() + "/" + new Date().getTime());
-
-            FileWriter fileWriter = new FileWriter(file);
-            fileWriter.append(content);
-            fileWriter.flush();
-            fileWriter.close();
-            return file.getAbsolutePath();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return e.getMessage();
-        }*/
-    }
-
 }

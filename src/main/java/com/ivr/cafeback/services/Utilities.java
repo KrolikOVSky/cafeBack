@@ -177,21 +177,12 @@ public class Utilities {
         }
     }
 
-    public static void base64Decode(String content) {
-
-    }
-
     public static String getExtension(String code) {
         return code.substring(code.indexOf("/") + 1, code.lastIndexOf(";"));
     }
 
     public static String getBase64(String code) {
         return code.substring(code.indexOf(",") + 1);
-    }
-
-    private static void base64ToImage(String content) throws IOException {
-//        byte[] decodedBytes = Base64.getDecoder().decode(content);
-//        FileUtils.writeByteArrayToFile(new File("/home/alex/Desktop/Test/img.png"), decodedBytes);
     }
 
     public static String saveImages(String code, String path) {
@@ -201,7 +192,7 @@ public class Utilities {
 
         try {
             File file = new File(String.format("%s/%s", path, fileName));
-            if(!new File(path).exists()){
+            if (!new File(path).exists()) {
                 System.out.println(new File(path).mkdir());
             }
             byte[] decodedBytes = Base64.getDecoder().decode(base64);

@@ -20,9 +20,9 @@ public class UpdateProductModel {
         this.deleted = deleted;
         this.price = price;
     }
-    
-    
-     public UpdateProductModel() {
+
+
+    public UpdateProductModel() {
     }
 
     public String getName() {

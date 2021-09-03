@@ -26,29 +26,29 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createProduct(@RequestBody CreateProductModel createdModel){
-        try{
+    public ResponseEntity<?> createProduct(@RequestBody CreateProductModel createdModel) {
+        try {
             productService.createProduct(createdModel);
             return new ResponseEntity<>(HttpStatus.OK);
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @PutMapping
-    public ResponseEntity<?> updateProduct(@RequestBody UpdateProductModel updatedModel){
+    public ResponseEntity<?> updateProduct(@RequestBody UpdateProductModel updatedModel) {
         try {
             productService.updateProduct(updatedModel);
             return new ResponseEntity<>(HttpStatus.OK);
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 
     @GetMapping("/del")
-    public List<ProductModel> getDeletedModels(){
+    public List<ProductModel> getDeletedModels() {
         return productService.getAllDeletedModels();
     }
 

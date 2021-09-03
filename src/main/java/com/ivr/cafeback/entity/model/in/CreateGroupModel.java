@@ -14,7 +14,7 @@ public class CreateGroupModel {
         this.name = "";
         this.image = "";
     }
-    
+
     public String getName() {
         return name;
     }

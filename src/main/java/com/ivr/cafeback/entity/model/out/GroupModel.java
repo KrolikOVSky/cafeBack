@@ -3,7 +3,8 @@ package com.ivr.cafeback.entity.model.out;
 import com.ivr.cafeback.entity.Group;
 import com.ivr.cafeback.entity.Product;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupModel {
     private String name;
@@ -27,7 +28,7 @@ public class GroupModel {
 
     public void setProducts(List<Product> products) {
         for (Product el : products) {
-            if(!el.getDeleted()){
+            if (!el.getDeleted()) {
                 this.products.add(new ProductModel(el));
             }
         }

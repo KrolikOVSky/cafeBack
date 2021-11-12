@@ -24,7 +24,10 @@ public class GroupService {
 
     public void createGroup(CreateGroupModel createdModel) {
         if (!groupRepo.existsGroupByNameAndDeleted(createdModel.getName(), false)) {
-            Group group = new Group(createdModel.getName(), Utilities.saveImages(createdModel.getImage(), uploadPath));
+            Group group = new Group(
+                    createdModel.getName(),
+                    Utilities.saveImages(createdModel.getImage(), uploadPath)
+            );
             groupRepo.save(group);
         } else throw new RuntimeException(String.format("\"%s\" is already exists", createdModel.getName()));
     }

@@ -6,6 +6,7 @@ import com.ivr.cafeback.entity.model.in.UpdateProductModel;
 import com.ivr.cafeback.entity.model.out.ProductModel;
 import com.ivr.cafeback.repositories.GroupRepo;
 import com.ivr.cafeback.repositories.ProductRepo;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,6 +16,9 @@ import java.util.List;
 public class ProductService {
     private final ProductRepo productRepo;
     private final GroupRepo groupRepo;
+
+    @Value("${upload.path}")
+    private String uploadPath;
 
     public ProductService(ProductRepo productRepo, GroupRepo groupRepo) {
         this.productRepo = productRepo;
@@ -33,7 +37,7 @@ public class ProductService {
         if (!productRepo.existsProductByNameAndDeleted(createdModel.getName(), false)) {
             Product product = new Product(
                     createdModel.getName(),
-                    createdModel.getImage(),
+                    Utilities.saveImages(createdModel.getImage(), uploadPath),
                     createdModel.getShortDesc(),
                     createdModel.getDescription(),
                     createdModel.getPrice(),

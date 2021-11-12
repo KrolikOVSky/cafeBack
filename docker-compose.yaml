@@ -20,6 +20,7 @@ services:
       JDBC_DATABASE_URL: "jdbc:postgresql://db:5432/cafe"
       JDBC_DATABASE_USERNAME: "postgres"
       JDBC_DATABASE_PASSWORD: "root"
+      LOG_PATH: "/app/log.txt"
     volumes:
       - "~/images/appContainer:/app/images"
     restart: always

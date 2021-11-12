@@ -1,6 +1,7 @@
 package com.ivr.cafeback.entity;
 
 import com.ivr.cafeback.services.Utilities;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Table(name = "products")
 public class Product extends BaseEntity {
     private String name;
+    @Type(type = "text")
     private String image;
     private String shortDesc;
     private String description;
